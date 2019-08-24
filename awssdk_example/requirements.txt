@@ -1,0 +1,2 @@
+AWSIoTPythonSDK>=1.4.7
+urllib3>=1.24.1
