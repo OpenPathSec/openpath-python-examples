@@ -15,6 +15,40 @@ flow, and is such is written in a straightline fashion, without the
 encapsulation, abstractions, error-handling, or separation of
 code/config that you would expect in production code.
 
+### User/credential management sample
+
+Several code samples in the `users_example` directory can serve as
+skeletons for working with users and credentials.
+
+To set up:
+
+```
+cd users_example
+pip3 install --user -r requirements.txt    # or use a virtualenv or your other preferred approach to python packages
+```
+
+Then to list all the users in your org:
+
+```
+python3 users_example.py you@corp.com yourOpenpathPassword yourOpenpathOrgId
+```
+
+To list all the credentials (covering all users) in your org:
+
+```
+python3 credentials_example.py you@corp.com yourOpenpathPassword yourOpenpathOrgId
+```
+
+Or try the following for a more complex example that does multiple steps:
+- fetch all users
+- fetch all credentials
+- find an existing user matching a given email address, or else create such a user if none exists yet
+- for that user, find an existing card credential with a given number, or else create such a credential if none exists yet
+
+```
+python3 create_credential_example.py you@corp.com yourOpenpathPassword yourOpenpathOrgId emailAddressOfUserToFindOrCreate cardNumberInOpenpath64BitFormat
+```
+
 ### MQTT/websockets samples
 
 For general info on our MQTT system for pushing real-time events out
